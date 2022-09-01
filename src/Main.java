@@ -8,7 +8,7 @@ public class Main {
             task_4();
             task_5();
             i++;
-        } while (i <= 2);
+        } while (i <= 10);
     }
 
     public static void task_1() {
@@ -63,10 +63,19 @@ public class Main {
         int modelYear = (int) (2007 + 15 * Math.random());
 //        System.out.println(clientOS);
 //        System.out.println(modelYear);
+        /*
+        //first solution
         if (clientOS == 0) {
             if (modelYear >= 2015) System.out.println("Установите стандартную версию приложения для iOS по ссылке");
             else System.out.println("Установите облегченную версию приложения для iOS по ссылке");
         } else if (modelYear >= 2015)
+            System.out.println("Установите стандартную версию приложения для Android по ссылке");
+        else System.out.println("Установите облегченную версию приложения для Android по ссылке");
+         */
+        if (clientOS == 0 && modelYear >= 2015)
+            System.out.println("Установите стандартную версию приложения для iOS по ссылке");
+        else if (clientOS == 0) System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+        else if (clientOS == 1 && modelYear >= 2015)
             System.out.println("Установите стандартную версию приложения для Android по ссылке");
         else System.out.println("Установите облегченную версию приложения для Android по ссылке");
         System.out.println("***\n");
@@ -129,32 +138,37 @@ public class Main {
         Напишите программу, которая определяет по номеру месяца в году, к какому сезону этот месяц принадлежит.
         Например, 1 месяц (он же январь) принадлежит к сезону зима. Для написания программы используйте оператор switch.
         Для обозначения номера месяца используйте переменную monthNumber = 12.
-        Пропишите условие, при котором программа не будет выполняться (номер месяца больше 13).
+        Пропишите условие, при котором программа не будет выполняться (номер месяца больше 13).  //Тринадцати???
         **Критерии оценки**
             – Применен оператор switch.
-            – Условие, при котором программа не будет выполняться, прописана
+            – Условие, при котором программа не будет выполняться, прописана  //"прописано"
             – Значение переменной присвоено корректно
             – Правила синтаксиса и пунктуации соблюдены.
          */
-        System.out.println("Задание 5");
+
         int monthNumber = (int) (20 * Math.random());
-        switch (monthNumber){
+        if (monthNumber > 12) return; //Условие, при котором программа не будет выполняться. Но лучше на чтобы она выполнялась.
+        System.out.println("Задание 5");
+        switch (monthNumber) {
             case 12:
             case 1:
             case 2:
-                System.out.printf("%d месяц принадлежит сезону зима.%n",monthNumber);
+                System.out.printf("%d месяц принадлежит сезону зима.%n", monthNumber);
                 break;
             case 3:
             case 4:
-            case 5:System.out.printf("%d месяц принадлежит сезону весна.%n",monthNumber);
+            case 5:
+                System.out.printf("%d месяц принадлежит сезону весна.%n", monthNumber);
                 break;
             case 6:
             case 7:
-            case 8:System.out.printf("%d месяц принадлежит сезону лето.%n",monthNumber);
+            case 8:
+                System.out.printf("%d месяц принадлежит сезону лето.%n", monthNumber);
                 break;
             case 9:
             case 10:
-            case 11:System.out.printf("%d месяц принадлежит сезону осень.%n",monthNumber);
+            case 11:
+                System.out.printf("%d месяц принадлежит сезону осень.%n", monthNumber);
                 break;
             default:
                 System.out.printf("Месяца №%d не существует.%n", monthNumber);
